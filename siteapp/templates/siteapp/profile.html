@@ -1,0 +1,24 @@
+
+{% extends 'siteapp/base.html' %}
+ {% block content %}
+ {% load static %}
+
+{% static "" as baseurl %}
+ 
+
+  <div class="row">
+    <div class="col-sm-5 ">
+      <img src="{{baseurl}}icons/{{user.username}}.jpg" width="50%" height="50%"/>
+
+    </div>
+    <div class="col-sm-7">
+   
+Username : {{userobj.username}}<br>
+First Name:{{userobj.first_name}}<br>
+Last Name :{{userobj.last_name}}<br>
+Email Id : {{userobj.email}}<br>
+    </div>
+    
+  </div>
+
+{% endblock %}

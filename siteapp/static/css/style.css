@@ -1,0 +1,40 @@
+
+
+
+  .im {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.welll{
+     background-color: #3b5998;
+}
+input[type=file] {
+    display: block;
+    width: 100%;
+}
+.boxtype{
+  box-shadow: 2px 2px 16px 3px #444;
+    box-sizing: 10px;
+    padding: 14px;
+    margin: 1%;
+}
+
+body{
+  position: relative;
+}
+
+  main {
+    flex: 1 0 auto;
+  }
+  .foo{
+  position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: red;
+   color: white;
+   text-align: center;
+  }
+      

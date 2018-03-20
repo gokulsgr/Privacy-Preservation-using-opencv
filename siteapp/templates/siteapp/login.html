@@ -1,0 +1,30 @@
+
+{% extends 'siteapp/base.html' %}
+{% block content %}
+
+
+
+
+<div class="boxtype">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+        <p>
+            <label>Username</label>
+            <input type="text" class="form-control" name="username">
+        </p>
+        <p>
+            <label>Password</label>
+            <input type="password" class="form-control" name="password">
+        </p>
+        <button class="btn btn-primary" type="submit">Login</button>
+    </div>
+    </form>
+</div>
+
+
+{% endblock %}
+
+
+
+

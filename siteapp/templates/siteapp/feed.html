@@ -1,0 +1,213 @@
+
+{% extends 'siteapp/base.html' %}
+ {% block content %}
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+  <div class="container">
+
+<nav class="navbar navbar-inverse bgnav">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Secured Social Website</a>
+    </div>
+<ul class="nav navbar-nav navbar-right ">
+ <li><a href="/register">Register</a></li>
+  {% if user.is_authenticated %}  
+    <li><a href="#">welcome {{ user.username }}</a></li>
+    <li><a href="/logout">Log out</a></li>
+{% else %}
+    <li><a href="/login">Please log in to continue</a></li>  
+    
+{% endif %}
+
+  </ul>
+
+
+</nav>
+<br>
+<br> -->
+
+
+
+
+
+
+
+
+{% if user.is_authenticated %} 
+
+
+
+{% static "" as baseurl %}
+
+<br><br>
+
+<div class="row">
+  <div class="col-sm-4">
+<div class="boxtype">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+        <div class="">
+            <h5>choose the image </h5></div>  
+            <input type="file" class="form-control" name="myfile">
+ <br>
+      
+        <button class="btn btn-primary " type="submit">Post </button>
+    </div>
+    </form>
+
+</div>
+
+<div class="war">
+
+               {% if message %}
+            <div class="well well-lg welll" style="background-color:#FFF">
+    
+                <p style="color: red;">{{message}}</p>
+              </div>
+
+      {% endif%} 
+
+      {% if uploaded_file_url %}
+        {% static "" as baseurl %}
+
+<img src="{{baseurl}}test/{{uploaded_file_url}}" style="width:50%;height:10%;" style="width:50%" class="im"/>
+{% endif %}
+
+</div>
+
+
+
+  
+</div>
+<style>
+.vl {
+    border-left: 6px solid #ee6e73;
+    height: 620px;
+}
+</style>
+<div class="col-sm-1">
+<div class="vl"></div>
+  </div>
+<style>
+.war{
+  max-height: 3%;
+    overflow-y: scroll;
+        padding: 20px;
+}
+.over{
+ /* background-color: lightblue;
+    
+    overflow: scroll;*/
+  /*max-height: 40%;*/
+  width: 700px;
+    height: 1000px;
+    overflow-y: scroll;
+        padding: 20px;
+}
+.arrange{
+  width: 65%;
+}
+</style>
+
+<div class="col-sm-7">
+  <h2>FEEDS</h2>
+  <div class="over">
+
+    <div class="arrange">
+
+{% for image in images %}
+      
+        <div class="boxtype">
+          <div class="card">
+             <div class="card-content" >
+            <h6 style="font-weight: bold;
+    font-size: 14px;" >{{ user.username }} added a new photo</h6>
+            </div>
+            <div class="card-image">
+               
+              <img src="{{baseurl}}s{{stringnum}}/{{image.image}}" width="300px" height="50%"/> 
+             
+            </div>
+            <br>
+            <div class="card-content">
+              <i class="fas fa-thumbs-up" style="font-size:20px"></i>Like &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+          <i class="fas fa-comments" style="font-size:20px"></i>Comment&nbsp;&nbsp;
+          <i class="fas fa-share" style="font-size:20px"></i>Share
+
+            </div>
+            <br>
+            
+                    <input type="text" placeholder="Comment on this post">
+           
+          </div>
+        
+     </div> 
+{% endfor %}
+</div>
+</div>
+<!-- 
+
+
+  <img src="{{baseurl}}icons/{{user.username}}.jpg" width="17%" height="50%"/> -->
+         <br>
+         <br>
+
+
+{% endif %}
+</div>
+</div>
+
+
+
+
+
+<br>
+<br><br><br><br><br><br><br><br>
+   
+
+
+
+
+</div>
+<!-- </body>
+</html> -->
+
+{% endblock %}
+
+
+
+
+{% for image in images %}
+      <div class="row">
+        <div class="col s12 m7">
+          <div class="card">
+            <div class="card-image">
+              <img src="{{baseurl}}{{image}}" width="17%" height="50%"/> 
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+        
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endfor %}

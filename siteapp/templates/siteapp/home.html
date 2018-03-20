@@ -1,0 +1,71 @@
+
+{% extends 'siteapp/base.html' %}
+ {% block content %}
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+  <div class="container">
+
+<nav class="navbar navbar-inverse bgnav">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Secured Social Website</a>
+    </div>
+<ul class="nav navbar-nav navbar-right ">
+ <li><a href="/register">Register</a></li>
+  {% if user.is_authenticated %}  
+    <li><a href="#">welcome {{ user.username }}</a></li>
+    <li><a href="/logout">Log out</a></li>
+{% else %}
+    <li><a href="/login">Please log in to continue</a></li>  
+    
+{% endif %}
+
+  </ul>
+
+
+</nav> -->
+<br>
+<br>
+
+
+
+
+  <div class="row">
+    <div class="col-sm-8 ">
+      <p><img src=" {% static 'icons/I1.png'%}" />  &nbsp;&nbsp;&nbsp;&nbsp;Welcome to the Secured way of sharing data with Privacy Aware  Social Network </p>
+       <p><img src=" {% static 'icons/I2.png'%}" />&nbsp;&nbsp;&nbsp;&nbsp;View photos and updates of your created community. </p>
+       <p><img src=" {% static 'icons/I3.png'%}" />&nbsp;&nbsp;&nbsp;&nbsp;Find more and more details of what you're looking for. </p>
+
+    </div>
+    <div class="col-sm-4">
+    <p><img src=" {% static 'icons/secure.jpg'%}" alt="secure image" height="20%" width="75%"/></p>
+    </div>
+    
+  </div>
+
+
+
+
+
+
+
+<!-- </body>
+</html>
+
+
+ -->
+ 
+{% endblock %}

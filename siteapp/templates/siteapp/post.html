@@ -1,0 +1,79 @@
+
+{% extends 'siteapp/base.html' %}
+ {% block content %}
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+</head> 
+<body>
+ 
+ <div class="">
+<nav class="navbar navbar-inverse bgnav">
+ 
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Secured Social Website</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right ">
+         {% if user.is_authenticated %}  
+    <li><a href="#">welcome {{ user.username }}</a></li>
+    <li><a href="/logout">Log out</a></li>
+    {% else %}
+     <li><a href="/login">Please log in to continue</a></li>
+{% endif %}
+         <li><a href="/register">Register </a></li>
+
+   </ul>
+
+  
+</nav>
+ -->
+
+
+<div class="boxtype">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+        <div class="">
+            <label>choose the image </label></div>  
+            <input type="file" class="form-control" name="myfile">
+   <br>
+      
+        <button class="btn btn-primary " type="submit">Post </button>
+    </div>
+    </form>
+
+</div>
+
+<br>
+
+{% if message %}
+<div class="well well-lg welll" style="background-color:#FFF">
+    
+    <p>{{message}}</p>
+  </div>
+
+{% endif%} 
+
+{% if uploaded_file_url %}
+{% static "" as baseurl %}
+
+<img src="{{baseurl}}test/{{uploaded_file_url}}" style="width:500px;height:600px;" style="width:50%" class="im"/>
+{% endif %}
+</div>  
+
+{% endblock %}
+
+
+
+
+

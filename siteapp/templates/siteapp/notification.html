@@ -1,0 +1,97 @@
+
+{% extends 'siteapp/base.html' %}
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+  <div class="container">
+
+<nav class="navbar navbar-inverse bgnav">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Secured Social Website</a>
+    </div>
+<ul class="nav navbar-nav navbar-right ">
+ <li><a href="/register">Register</a></li>
+  {% if user.is_authenticated %}  
+    <li><a href="#">welcome {{ user.username }}</a></li>
+    <li><a href="/logout">Log out</a></li>
+{% else %}
+    <li><a href="/login">Please log in to continue</a></li>  
+    
+{% endif %}
+
+  </ul>
+
+
+</nav>
+<br>
+<br> -->
+
+
+
+
+
+{% block content %}
+
+
+{% if user.is_authenticated %} 
+
+
+
+{% static "" as baseurl %}
+ <h5>Your notifications:</h5>
+ {%if posts %}
+{% for post in posts %}
+<div class="well">
+<form method="POST">
+   {% csrf_token %}
+   <div class="row">
+     <div class="col-sm-9">
+       {{post.message}}
+   </div>
+    <div class="col-sm-1">
+      {% if post.typeof == "req"%}<a href="{{baseurl}}test/{{post.testimageloc}}"     >view</a>{% endif  %}
+    </div>
+<div class="col-sm-2">
+       {% if post.typeof == "req"%}
+<input class="waves-effect waves-light btn" type="submit" name="{{post.id}}" value="accept">
+{% endif  %}
+<input class="waves-effect waves-light btn" type="submit" name="{{post.id}}" value="close"></div>
+</div>
+</form>
+</div>  
+{% endfor %}
+
+
+
+
+<!-- 
+
+
+  <img src="{{baseurl}}icons/{{user.username}}.jpg" width="17%" height="50%"/> -->
+{% else %}
+<h1><center>No Notifications</center></h1>
+{% endif %}
+
+
+{% endif %}
+
+
+
+
+
+
+
+{% endblock %}

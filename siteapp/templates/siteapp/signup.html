@@ -1,0 +1,45 @@
+{% extends 'siteapp/base.html' %}
+ {% block content %}
+
+
+<div class="boxtype">
+
+{% if user.is_authenticated %}
+<div class="well"><p>
+Please log out to create the new account
+</p></div>
+{% else %}
+  {% load widget_tweaks %}  
+
+    <form method="POST" >
+         {% csrf_token %}
+         <div class="form-group">
+       
+        <label >Username</label>
+          {% render_field form.username class+="form-control " placeholder="Sgr" %}
+          <label >First name</label>
+          {% render_field form.first_name class+="form-control " placeholder="Gokul " %}
+         <label >Last name </label>
+         {% render_field form.last_name class+="form-control " placeholder="Raj" %}
+          
+    
+         <label >Email id</label>
+         {% render_field form.email class+="form-control " placeholder="abc@gmail.com" %}
+            <label  >Password</label>
+   {% render_field form.password class+="form-control " placeholder="***********" %}
+    <label  >Proof</label>
+   {% render_field form.image class+="form-control"%}
+
+
+
+
+
+<br>
+        <button class="btn btn-dprimary  " type="submit">Submit</button>
+    </div>
+    </form>
+</div>
+
+{% endif %}
+
+{% endblock %}
